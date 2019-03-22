@@ -45,17 +45,17 @@ You're reading it! and here is a link to my [project code](https://github.com/ud
 I used the pandas library to calculate summary statistics of the traffic
 signs data set:
 
-* The size of training set is ?
-* The size of the validation set is ?
-* The size of test set is ?
-* The shape of a traffic sign image is ?
-* The number of unique classes/labels in the data set is ?
+* The size of training set is `34799`
+* The size of the validation set is `4410`
+* The size of test set is `12630`
+* The shape of a traffic sign image is `(32, 32, 3)`
+* The number of unique classes/labels in the data set is `43`
 
 #### 2. Include an exploratory visualization of the dataset.
 
-Here is an exploratory visualization of the data set. It is a bar chart showing how the data ...
+Here is an exploratory visualization of the data set. In order to better understand the nature of the data, we select one candidate from each class and plot the corresponding sign.
 
-![alt text][image1]
+![alt text][one_sign_per_class]
 
 ### Design and Test a Model Architecture
 
