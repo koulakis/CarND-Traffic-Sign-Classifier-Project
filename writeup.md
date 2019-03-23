@@ -17,9 +17,10 @@ The goals / steps of this project are the following:
 * Summarize the results with a written report
 
 
-[//]: # (Image References)
+[//]: #(Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
+[one_sign_per_class]: ./writeup_figures/one_sign_per_class.png "One Sign per Class"
+[class_distribution]: ./writeup_figures/class_distribution.png "Class Distribution"
 [image2]: ./examples/grayscale.jpg "Grayscaling"
 [image3]: ./examples/random_noise.jpg "Random Noise"
 [image4]: ./examples/placeholder.png "Traffic Sign 1"
@@ -57,23 +58,20 @@ Here is an exploratory visualization of the data set. In order to better underst
 
 ![alt text][one_sign_per_class]
 
+Additionally it is important to know if there is some major balance issue between class. We see that this is not the case by plotting the frequencies of the classes:
+
+![alt_text][class_distribution]
+
 ### Design and Test a Model Architecture
 
 #### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
-As a first step, I decided to convert the images to grayscale because ...
-
-Here is an example of a traffic sign image before and after grayscaling.
-
+The preprocessing consists of the following steps:
+1. **Scaling**: We apply min-max scaling around the mean. The reason for using that is to center the values around 0 and in a reasonable range so that the optimizer can converge easily and on a solution which is less biased on incidental global properties of the RGB distributions.The transform is (X_train - X_train.mean()) / (X_train.max() - X_train.min()) and it is applied on all colors simultaneously. This step is applied only once on all data sets. 
+1. **Data augmentation**: Two transforms are applied here: brightness and hue change. They were both picked during an error analysis where a lot of misclassified images were really bright and the colors of the sign were a bit different.
+  
 ![alt text][image2]
 
-As a last step, I normalized the image data because ...
-
-I decided to generate additional data because ... 
-
-To add more data to the the data set, I used the following techniques because ... 
-
-Here is an example of an original image and an augmented image:
 
 ![alt text][image3]
 
